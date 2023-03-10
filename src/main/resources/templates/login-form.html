@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head th:replace="fragments.html :: head(${title})"></head>
+
+<body>
+<nav th:replace="fragments.html :: mainNav"></nav>
+
+<main class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Login</h1>
+
+      <div th:if="${error}" class="alert alert-danger my-3">
+        Fehler beim Login.
+      </div>
+
+      <form method="post" action="/sess/login">
+        <input type="text" class="form-control" name="email" th:placeholder="#{usr.email}">
+        <input type="password" class="form-control" name="password" th:placeholder="#{usr.password}">
+        <button class="btn btn-success">Einloggen</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+<th:block th:replace="fragments.html :: foot"></th:block>
+</body>
+</html>
